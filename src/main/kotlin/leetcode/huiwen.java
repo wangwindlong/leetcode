@@ -1,3 +1,5 @@
+package leetcode;
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -50,7 +52,7 @@ interface Hello {
 
 /**
  *
-public class HelloDynamicProxy implements Hello {
+public class HelloDynamicProxy implements leetcode.Hello {
     InvocationHandler handler;
     public HelloDynamicProxy(InvocationHandler handler) {
         this.handler = handler;
@@ -58,7 +60,7 @@ public class HelloDynamicProxy implements Hello {
     public void morning(String name) {
         handler.invoke(
                 this,
-                Hello.class.getMethod("morning", String.class),
+                leetcode.Hello.class.getMethod("morning", String.class),
                 new Object[] { name });
     }
 }
