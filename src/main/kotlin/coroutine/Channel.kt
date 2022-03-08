@@ -58,7 +58,7 @@ fun main() = runBlocking {
     println()
 
 }
-fun simple(): Flow<Int> = flow { // 流构建器
+fun simple() = flow { // 流构建器
     for (i in 1..3) {
         delay(100) // 假装我们在这里做了一些有用的事情
         emit(i) // 发送下一个值
