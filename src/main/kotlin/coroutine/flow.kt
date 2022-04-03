@@ -1,10 +1,17 @@
 package coroutine
 
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
 
 class Flow {
+
+    suspend fun test() {
+        coroutineScope {
+
+        }
+    }
 }
 
 fun main() = runBlocking {
