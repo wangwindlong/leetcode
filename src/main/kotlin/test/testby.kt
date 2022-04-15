@@ -26,8 +26,8 @@ class Delegate {
     }
 }
 
-//类代理
-class DelegateList<T>(private var innerlist:MutableCollection<T> = HashSet()): MutableCollection<T> by innerlist {
+//类委托
+class DelegateList<T>(private val innerlist:MutableCollection<T> = HashSet()): MutableCollection<T> by innerlist {
 
     var count = 0
     override fun add(element: T): Boolean {
@@ -94,9 +94,9 @@ fun main(args: Array<String>) {
     println(e.p)
 
     val d = DelegateList<String>()
-    print(d.size)
+    println(d.size)
     d.add("aaa")
-    print(d.size)
+    println(d.size)
 
     val list = listOf("1", 2, "3")
     println(list.filterIsInstance<String>())
