@@ -65,6 +65,7 @@ public class Fib {
         current = res;
     }
 
+    //非递归
     public int[] getfib(int n) {
         int[] result = new int[Math.max(n, 2)];
         result[0] = prev;
@@ -77,11 +78,17 @@ public class Fib {
         return result;
     }
 
+    public static int fib(int n, int prev, int last) {
+        if (n <= 1) return prev;
+        return fib(n-1, last, prev + last);
+    }
+
     public static void main(String[] args) {
         Fib fib = new Fib(0, 1);
 //        for (int i = 0; i < 40; i++) {
 //            fib.fib();
 //        }
-        System.out.println(Arrays.toString(fib.getfib(10)));
+        System.out.println(Arrays.toString(fib.getfib(12)));
+        System.out.println(Fib.fib(10, 0, 1));
     }
 }

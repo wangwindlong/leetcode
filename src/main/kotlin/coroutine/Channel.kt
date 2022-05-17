@@ -81,7 +81,7 @@ fun main(): Unit = runBlocking {
 //            Thread.sleep(100) //此时上面的所有协程代码都会被block
             emit(i) // 发送下一个值
         }
-    }.collect { value -> println(value) } // 收集这个流
+    }.buffer().collect { value -> println(value) } // 收集这个流
     println("done")
     fun simple() = flow {
         for (i in 1..3) {
