@@ -1,26 +1,22 @@
 package recursion;
 
 import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
 
 //排序 使得所有偶数在所有奇数前面 C4.19
 public class sortodd {
-    public static int[] sortOdd(int[] datas) {
-        return sortOdd(datas, 0, 1);
+    public static Integer[] sortOdd(int[] datas) {
+        return sortOdd(datas, 0, new LinkedList<>());
     }
-    //双指针odd指向最开始的奇数，cur则遍历所有元素
-    public static int[] sortOdd(int[] datas, int odd, int cur) {
-        if (cur >= datas.length) return datas;
-        int nextodd = (datas[odd] & 1) == 0 ? odd + 1 : odd; //如果当前指向的是偶数，那么odd+1
-        if ((datas[cur] & 1) == 0 && cur >= nextodd) {//如果当前cur指向的是偶数，且大于odd指向的位置
-            int tmp = datas[cur];//替换
-            datas[cur] = datas[odd];
-            datas[odd] = tmp;
-        }
-        cur++;//向后遍历
-        return sortOdd(datas, nextodd, cur);
+    public static Integer[] sortOdd(int[] datas, int cur, Deque<Integer> res) {
+        if (cur >= datas.length) return res.toArray(new Integer[0]);
+        if ((datas[cur] & 1) == 0) res.offerFirst(datas[cur]);
+        else res.offerLast(datas[cur]);
+        return sortOdd(datas, cur + 1, res);
     }
     public static void main(String[] args) {
-        int[] datas = new int[]{1,2,3,4,5,6,7,8};
+        int[] datas = new int[]{2,12,14,3,4,5,6,7,8, 31, 50, 55, 66,53,52,54,56,58};
         System.out.println(Arrays.toString(sortodd.sortOdd(datas)));
 
     }

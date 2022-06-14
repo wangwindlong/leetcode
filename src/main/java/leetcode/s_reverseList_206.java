@@ -25,9 +25,10 @@ public class s_reverseList_206 extends BaseListNode {
     }
     //转换 前3个元素 1 -> 2 -> 3 -> 4 -> null    null <- 4 <- 1 <- 2 <- 3
     public static ListNode reverseList2(ListNode head, ListNode tail) {
-        ListNode prev = tail == null ? tail : tail.next;
+        ListNode prev = tail == null ? null : tail.next;
+        ListNode newTail = prev;
         ListNode cur = head;
-        while (prev != tail) {//只要还没到tail,注意此处是prev 而不是cur，卡壳2小时
+        while (cur != newTail) {//只要还没到tail
             ListNode tmp = cur.next;
             cur.next = prev;
             prev = cur;
@@ -44,7 +45,7 @@ public class s_reverseList_206 extends BaseListNode {
         root.next.next.next.next = new ListNode(5);
 //        ListNode node = s_reverseList_206.reverseList(root);
 //        printNodes(node);
-//        printNodes(s_reverseList_206.reverseList2(node));
-        printNodes(s_reverseList_206.reverseList2(root, root.next.next));
+        printNodes(s_reverseList_206.reverseList2(root));
+//        printNodes(s_reverseList_206.reverseList2(root, root.next.next));
     }
 }

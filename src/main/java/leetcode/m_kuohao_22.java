@@ -24,11 +24,11 @@ public class m_kuohao_22 {
     }
 
     //暴力求解，复杂度是
-    public void generateAll(char[] current, int pos, List<String> result) {
+    public static void generateAll(char[] current, int pos, List<String> result) {
         if (pos == current.length) {
-            if (valid(current)) {
+//            if (valid(current)) {
                 result.add(new String(current));
-            }
+//            }
         } else {
             current[pos] = '(';
             generateAll(current, pos + 1, result);
@@ -37,7 +37,7 @@ public class m_kuohao_22 {
         }
     }
 
-    public boolean valid(char[] current) {
+    public static boolean valid(char[] current) {
         int balance = 0;
         for (char c: current) {
             if (c == '(') {
@@ -53,6 +53,9 @@ public class m_kuohao_22 {
     }
 
     public static void main(String[] args) {
+        ArrayList<String> res = new ArrayList<>();
+        m_kuohao_22.generateAll(new char[3], 0, res);
+        System.out.println(Arrays.toString(res.toArray()));
         m_kuohao_22 kuo = new m_kuohao_22();
         System.out.println(Arrays.toString(kuo.generateParenthesis(3).toArray()));
 

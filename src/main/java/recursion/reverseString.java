@@ -21,8 +21,18 @@ public class reverseString {
         return reverse(str, cur + 1);
     }
 
+    public static char[] reverse(char[] str, int start, int stop) {
+        if (start >= stop) return str;
+        char tmp = str[stop];
+        str[stop] = str[start];
+        str[start] = tmp;
+        return reverse(str, start + 1, stop - 1);
+    }
+
     public static void main(String[] args) {
-        System.out.println(reverseString.reverse("nihaoma@abcd"));
+        String str = "nihaoma@abcd";
+        System.out.println(reverseString.reverse(str));
+        System.out.println(reverseString.reverse(str.toCharArray(), 0, str.length() - 1));
     }
 
 }

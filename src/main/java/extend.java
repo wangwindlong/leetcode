@@ -15,8 +15,8 @@ public class extend {
     }
 
     public static void main(String[] args) {
-//        List<? extends Father> list1 = new ArrayList<>(); //上界  不能往里存，只能往外取
-//        List<? super Father> list2 = new ArrayList<>();  //下界 可以存子类，但是获取不到子类类型
+        List<? extends Father> list1 = new ArrayList<>(); //上界  不能往里存，只能往外取
+        List<? super Father> list2 = new ArrayList<>();  //下界 可以存子类，但是获取不到子类类型
 //        list1.add(new Father()); //error
 //        list1.add(new Child());  //error
 //        list2.add(new Father());

@@ -99,10 +99,10 @@ public class m_Path_62_dp {
     }
 
     public static void main(String[] args) {
-        System.out.println(m_Path_62_dp.uniquePaths3(4, 7));
+        System.out.println(m_Path_62_dp.uniquePaths(4, 7));
         System.out.println(m_Path_62_dp.uniquePaths4(4, 7));
         System.out.println(m_Path_62_dp.uniquePaths5(4, 7));
-        System.out.println(m_Path_62_dp.uniquePaths6(4, 7));
+        System.out.println(m_Path_62_dp.uniquePaths2(3, 3));
     }
 
 }

@@ -15,6 +15,17 @@ public class Fib {
         return result[n];
     }
 
+    //简化数组
+    public int _climbStairs(int n) {
+        int prev = 0, cur = 1;
+        for (int i = 1; i < n; i++) {
+            int tmp = cur;
+            cur = prev + cur;
+            prev = tmp;
+        }
+        return cur;
+    }
+
     //O(n) + O(1)
     public int climbStairs3(int n) {
         int result = 1;
@@ -33,7 +44,7 @@ public class Fib {
      * 4.确定遍历顺序：分析递推公式可知当前值依赖前两个值来确定，所以递推顺序应该是从前往后；
      * 5.打印dp数组看自己写的对不对；
      */
-    public int climbStairs2(int n) {
+    public int climbStairs_dp(int n) {
         if (n <= 1) return n;
         /* 定义dp数组 */
         int[] dp = new int[n+1];
@@ -45,6 +56,18 @@ public class Fib {
             dp[i] = dp[i-1] + dp[i-2];
         }
         return dp[n];
+    }
+    public int climbStairs_dp2(int n) {
+        if (n <= 1) return n;
+        /* 定义dp数组 */
+        int prev = 1, cur = 2;
+        /* 从前往后遍历 */
+        for(int i = 3; i <= n; i++) {
+            int tmp = cur;
+            cur = prev + cur;
+            prev = tmp;
+        }
+        return cur;
     }
 
     public int climbStairs4(int n) {
@@ -88,7 +111,9 @@ public class Fib {
 //        for (int i = 0; i < 40; i++) {
 //            fib.fib();
 //        }
-        System.out.println(Arrays.toString(fib.getfib(12)));
-        System.out.println(Fib.fib(10, 0, 1));
+        System.out.println(Arrays.toString(fib.getfib(2)));
+        System.out.println(fib._climbStairs(3));
+        System.out.println(Fib.fib(12, 0, 1));
+        System.out.println(fib.climbStairs_dp2(4));
     }
 }

@@ -16,7 +16,7 @@ public class h_queen_51 {
             for (int i : queens) {
                 String item = "";
                 for (int j = 0; j < n; j++) {
-                    if (j == i) item += i;
+                    if (j == i) item += "Q";
                     else item += ".";
                 }
                 row.add(item);
@@ -26,7 +26,7 @@ public class h_queen_51 {
         return results;
     }
 
-    //queens保存每行的位置，值为[1,2,3] dif为45度线数组 值为[1,2,3]  sum为135度线
+    //queens保存每列的位置，值为[1,2,3] dif为45度线数组 值为[1,2,3]  sum为135度线
     public static void dfs(List<List<Integer>> res, List<Integer> queens, List<Integer> dif, List<Integer> sum, int n) {
         int count = queens.size();
         if (count == n) {
@@ -39,16 +39,16 @@ public class h_queen_51 {
                 dif.add(count - i);
                 sum.add(count + i);
                 dfs(res, queens, dif, sum, n);
-//                queens.remove(queens.size() - 1);
-//                dif.remove(dif.size() - 1);
-//                sum.remove(dif.size() - 1);
+                queens.remove(queens.size() - 1);
+                dif.remove(dif.size() - 1);
+                sum.remove(sum.size() - 1);
             }
         }
 
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(h_queen_51.solveNQueens(2).toArray()));
+        System.out.println(Arrays.toString(h_queen_51.solveNQueens(4).toArray()));
     }
 
 

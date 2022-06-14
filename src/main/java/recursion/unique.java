@@ -1,6 +1,6 @@
 package recursion;
 
-//确定元素是否都是唯一的
+//确定元素是否都是唯一的 C4-11
 public class unique {
     public static boolean unique(int[] datas) {
         return unique(datas, 0, datas.length - 1);

@@ -39,7 +39,6 @@ public class CounterTest {
         System.err.println(c_1);
         System.err.println(c_2.get());
         System.err.println(c_3.longValue());
-
     }
 
     private synchronized static void f1() {

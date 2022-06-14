@@ -28,8 +28,9 @@ public class h_reverseK_25 extends BaseListNode {
 
     public static ListNode[] reverseKGroup(ListNode node, ListNode tail) {
         ListNode prev = tail == null ? tail : tail.next; //新链表的尾
+        ListNode newTail = prev;
         ListNode cur = node;
-        while (prev != tail) { //只要还没到tail,注意此处是prev 而不是cur，卡壳2小时
+        while (cur != newTail) { //只要还没到tail
             ListNode tmp = cur.next;
             cur.next = prev;
             prev = cur;
@@ -44,6 +45,6 @@ public class h_reverseK_25 extends BaseListNode {
         node1.next.next = new ListNode(3);
         node1.next.next.next = new ListNode(4);
         node1.next.next.next.next = new ListNode(5);
-        printNodes(h_reverseK_25.reverseKGroup(node1, 2));
+        printNodes(h_reverseK_25.reverseKGroup(node1, 3));
     }
 }

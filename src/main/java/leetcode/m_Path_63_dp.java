@@ -19,9 +19,23 @@ public class m_Path_63_dp {
         return res[col-1];
     }
 
+    public static int path(int[][] obstacleGrid) {
+        int[] res = new int[obstacleGrid[0].length];
+        res[0] = 1;
+        for (int i = 0; i < obstacleGrid.length; i++) {
+            for (int j = 0; j < obstacleGrid[0].length; j++) {
+                if (obstacleGrid[i][j] == 1) res[j] = 0;
+                else if (j > 0) res[j] += res[j-1];
+            }
+        }
+        System.out.println(Arrays.toString(res));
+        return res[res.length - 1];
+    }
+
     public static void main(String[] args) {
         int[][] nums = new int[3][3];
         nums[1][1] = 1;
+        System.out.println(m_Path_63_dp.path(nums));
         System.out.println(m_Path_63_dp.uniquePathsWithObstacles(nums));
         nums = new int[2][2];
         nums[0][1] = 1;
